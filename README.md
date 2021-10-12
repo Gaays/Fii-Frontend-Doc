@@ -16,3 +16,7 @@ npm run dev
 ```
 
 open http://localhost:8080/fii-frontend-doc/
+
+## Pages
+
+https://gaays.github.io/Fii-Frontend-Doc/
