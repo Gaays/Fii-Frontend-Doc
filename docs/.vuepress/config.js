@@ -7,8 +7,7 @@ var { genNav, getComponentSidebar, deepClone } = utils
 module.exports = {
   title: 'Fii-Frontend-Doc',
   description: 'A magical vue admin',
-  base: '/fii-frontend-doc/',
-  dest: './public',
+  base: '/Fii-Frontend-Doc/',
   head: [
     [
       'link',
@@ -18,7 +17,8 @@ module.exports = {
       }
     ]
   ],
-  cache:false,
+  port: '8081',
+  cache: false,
   themeConfig: {
     docsDir: 'docs',
     sidebarDepth: 3,
@@ -36,10 +36,19 @@ module.exports = {
       {
         text: '生态系统',
         items: genNav(deepClone(EcosystemNav))
-      },
+      }
     ],
     sidebar: {
       '/guide/': [
+        {
+          title: '快速上手',
+          collapsable: false,
+          children: [
+            // '/guide/startGuide/quick-start.md',
+            '/guide/startGuide/development.md',
+            '/guide/startGuide/maintenance.md'
+          ]
+        },
         {
           title: '基础',
           collapsable: false,
@@ -55,25 +64,21 @@ module.exports = {
           collapsable: false,
           children: [
             '/guide/other/feature.md',
+            '/guide/other/extension.md',
             '/guide/other/faq.md',
             '/guide/other/release-notes.md'
           ]
         }
       ],
-      '/feature/component/': getComponentSidebar(
-        deepClone(ComponentNav)
-      ),
-      '/feature/script/': [
-        '/feature/script/svgo.md',
-        '/feature/script/new.md'
-      ]
+      '/feature/component/': getComponentSidebar(deepClone(ComponentNav)),
+      '/feature/script/': ['/feature/script/svgo.md', '/feature/script/new.md']
     }
   },
   locales: {
     '/': {
       lang: 'zh-CN',
       description: 'A magical vue admin'
-    },
+    }
   },
   configureWebpack: {
     resolve: {
@@ -88,7 +93,6 @@ module.exports = {
 function genEssentialsSidebar(type = '') {
   const mapArr = [
     '/guide/',
-    '/guide/essentials/quick-start.md',
     '/guide/essentials/layout.md',
     '/guide/essentials/router-and-nav.md',
     '/guide/essentials/permission.md',
@@ -99,7 +103,7 @@ function genEssentialsSidebar(type = '') {
     '/guide/essentials/mock-api.md',
     '/guide/essentials/import.md',
     '/guide/essentials/deploy.md',
-    '/guide/essentials/env.md',
+    '/guide/essentials/env.md'
   ]
   return mapArr.map(i => {
     return type + i
@@ -115,7 +119,6 @@ function genAdvancedSidebar(type = '') {
     '/guide/advanced/lazy-loading.md',
     '/guide/advanced/chart.md',
     '/guide/advanced/icon.md',
-    '/guide/advanced/cdn.md',
     '/guide/advanced/theme.md',
     '/guide/advanced/i18n.md',
     '/guide/advanced/error.md',

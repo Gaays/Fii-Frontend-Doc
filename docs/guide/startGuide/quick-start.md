@@ -1,10 +1,14 @@
-# 快速入门
+# 快速开始
 
 :::tip
 在开始之前，请务必查看并熟读[风格指南](/guide/advanced/style-guide.md)和[结构目录](/guide/#目录结构)，统一且规范的代码将为多人协作和维护带来极大的便利！
 :::
 
 ## 获取模板
+
+::: tip
+为了避免本框架代码被覆盖，请在`git clone`后删除项目中的.git 文件，并根据自身项目需求重新执行`git init`指令，创建项目仓库。
+:::
 
 ```bash
 # clone the project
@@ -20,12 +24,13 @@ npm run dev
 ## 默认布局
 
 ::: tip
-`@` 设置为src文件路径代称
+`@` 设置为 src 文件路径代称
 
 页面布局文件统一存放位置：[`@/layout`](http://106.52.211.44:5674/JiapengShu/fii-frontend-template/-/tree/master/src/layout)
 :::
 
 Fii-Frontend-Template 默认提供布局组件：
+
 - 侧边栏 [`Sidebar`](http://106.52.211.44:5674/JiapengShu/fii-frontend-template/-/blob/master/src/layout/components/Sidebar/index.vue)
 - 导航栏 [`Navbar`](http://106.52.211.44:5674/JiapengShu/fii-frontend-template/-/blob/master/src/layout/components/Navbar.vue)
   - 侧边栏收放按钮 [`hamburger`](http://106.52.211.44:5674/JiapengShu/fii-frontend-template/-/blob/master/src/layout/components/Hamburger/index.vue)
@@ -36,7 +41,8 @@ Fii-Frontend-Template 默认提供布局组件：
 根据项目业务不同的需求，你可以在[`@/setting`](http://106.52.211.44:5674/JiapengShu/fii-frontend-template/-/blob/master/src/settings.js)中配置布局组件
 
 布局组件可配置项：
-``` js
+
+```js
 // 浏览器标签名称
 title: 'Fii FrontEnd Template',
 
@@ -63,13 +69,14 @@ sidebarConfig: {
 :::
 
 ### 标签栏导航 TagsView
-本项目默认开启TagsView功能，如不需要可按照 [移除标签栏导航](tags-view.md#移除) 方法移除。
 
-TagsView实现原理：在[`TagsView`](http://106.52.211.44:5674/JiapengShu/fii-frontend-template/-/blob/master/src/layout/components/TagsView/index.vue)组件中监听Vue Router的变化，在标签栏根据vuex中路由数据进行逻辑处理和条件渲染。
+本项目默认开启 TagsView 功能，如不需要可按照 [移除标签栏导航](/guide/essentials/tags-view.md#移除) 方法移除。
+
+TagsView 实现原理：在[`TagsView`](http://106.52.211.44:5674/JiapengShu/fii-frontend-template/-/blob/master/src/layout/components/TagsView/index.vue)组件中监听 Vue Router 的变化，在标签栏根据 vuex 中路由数据进行逻辑处理和条件渲染。
 
 ### 浏览器标签 icon
 
-本模板提供默认icon ![默认icon](../../.vuepress/public/images/docImg/20210923094236.jpg)
+本模板提供默认 icon ![默认icon](../../.vuepress/public/images/docImg/20210923094236.jpg)
 若需要修改请替换`public/favicon.ico`文件
 
 ```html {9}
@@ -92,7 +99,6 @@ TagsView实现原理：在[`TagsView`](http://106.52.211.44:5674/JiapengShu/fii-
     <!-- built files will be auto injected -->
   </body>
 </html>
-
 ```
 
 配置完成后可以看到页面随着你的修改布局发生变化，接下来我们处理网络请求。
@@ -101,32 +107,32 @@ TagsView实现原理：在[`TagsView`](http://106.52.211.44:5674/JiapengShu/fii-
 
 ### 使用真实数据
 
-若已有后台接口地址，我们需要 [移除项目中的mock](/guide/essentials/mock-api.html#移除)。
+若已有后台接口地址，我们需要 [移除项目中的 mock](/guide/essentials/mock-api.html#移除)。
 
-为了方便修改部署环境，统一交付项目代码文件树，项目所有动态配置存放位置： `public/config/config.js`，api请求地址也在其中。
+为了方便修改部署环境，统一交付项目代码文件树，项目所有动态配置存放位置： `public/config/config.js`，api baseUrl 请求地址也在其中。
 
-``` js
+```js
 window.config = {
-    // api请求地址
-    apiUrl: '/dev-api',
+  // api请求地址
+  baseUrl: '/dev-api'
 }
 ```
 
-修改完api请求地址后`axios`就可以正确工作了，如果需要对`axios`默认行为修改，参考[axios文档](https://axios-http.com/zh/docs/intro)。
+修改完 api 请求地址后`axios`就可以正确工作了，如果需要对`axios`默认行为修改，参考[axios 文档](https://axios-http.com/zh/docs/intro)。
 
-如果项目不能按照你的预期执行，请查看路由拦截 [`@/permission`](http://106.52.211.44:5674/JiapengShu/fii-frontend-template/-/blob/master/src/permission.js)行为和axios [`@/util/request`](http://106.52.211.44:5674/JiapengShu/fii-frontend-template/-/blob/master/src/utils/request.js)行为，确保他们的行为符合你的预期。
+如果项目不能按照你的预期执行，请查看路由拦截 [`@/permission`](http://106.52.211.44:5674/JiapengShu/fii-frontend-template/-/blob/master/src/permission.js)行为和 axios [`@/util/request`](http://106.52.211.44:5674/JiapengShu/fii-frontend-template/-/blob/master/src/utils/request.js)行为，确保他们的行为符合你的预期。
 
-除此之外还可以使用[vue-cli环境变量](env.md)控制不同环境下使用不同的api接口地址
+除此之外还可以使用[vue-cli 环境变量](/guide/essentials/env.md)控制不同环境下使用不同的 api 接口地址
 
 ### 使用模拟数据
 
-参考[mock](mock-api.md)
+参考[mock](/guide/essentials/mock-api.md)
 
 ## 新增页面&维护路由
 
-`vue-element-admin`中已有详细文档，详见 [新增页面](new-page.md) 和 [路由和侧边栏](router-and-nav.md)
+`vue-element-admin`中已有详细文档，详见 [新增页面](/guide/essentials/new-page.md) 和 [路由和侧边栏](/guide/essentials/router-and-nav.md)
 
-## git相关
+## git 相关
 
 本模板规定了一套代码风格规范，会在`git commit`时检查代码，若不符合代码规范则会报错，控制台显示信息如下：
 
@@ -135,7 +141,7 @@ window.config = {
 当不能被自动修复时`git commit`动作会被中断，你需要根据提示手动修改错误后 **重新`git add`** 后再次尝试`git commit`。
 
 ::: danger
-**请勿修改git hook中关于代码格式化内容，以及`.eslintrc.js`文件**
+**请勿修改 git hook 中关于代码格式化内容，以及`.eslintrc.js`文件**
 :::
 
 在某些特殊情况下可以使用 `git commit --no-verify` 跳过 `git per-commit` 代码检查。
@@ -143,5 +149,5 @@ window.config = {
 ## 项目交付
 
 ::: tip
-项目交付时请移除不需要的npm包，如`husky`、`lint-staged`等，并删除引用及`package.json`中对应脚本。
+项目交付时请移除不需要的 npm 包，如`husky`、`lint-staged`等，并删除引用及`package.json`中对应脚本。
 :::

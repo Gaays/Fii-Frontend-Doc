@@ -4,24 +4,25 @@ pageClass: getting-started
 
 # 介绍
 
-> 本项目基于vue-element-admin，针对工业环境中常见业务场景进行功能增删，并修改原项目中已知bug。
-> 为了方便理解，在保留vue-element-admin源码里的中英注释的同时对部分复杂功能添加额外注释。
+> 本项目基于 vue-element-admin，针对工业环境中常见业务场景进行功能增删，并修改原项目中已知 bug。
+> 为了方便理解，在保留 vue-element-admin 源码里的中英注释的同时对部分复杂功能添加额外注释。
 
 相对`vue-element-admin`本项目修改内容如下：
 
 - 基础模板添加标签栏导航
-- 修改引入el-scrollbar带来的缩放bug
+- 修改引入 el-scrollbar 带来的缩放 bug
 - 添加代码混淆并在`production`环境下禁止控制台输出
+- 规范代码风格，git pre-commit 预处理
 
-同时，本项目统一了[代码风格及命名规范](/guide/advanced/style-guide.md)，请详读该部分，并遵照规则进行代码编写。如果ESLint不符合你的使用习惯，你可以在本地使用其他代码格式化工具修改代码风格，框架会在git操作时自动执行规定的ESLint校验，通过校验后才可以正常提交。
+本项目统一了[代码风格及命名规范](/guide/advanced/style-guide.md)，请详读该部分，并遵照规则进行代码编写。如果 ESLint 不符合你的使用习惯，你可以在本地使用其他代码格式化工具修改代码风格，框架会在 git commit 时自动执行规定的 ESLint 校验，通过校验后才可以正常提交。
 
 ::: danger
-**请勿修改git hook中关于代码格式化内容，以及`.eslintrc.js`文件**
+**请勿修改 git hook 中关于代码格式化内容，以及`.eslintrc.js`文件**
 :::
 
-`vue-element-admin`本身集成了很多常用功能，你可以从右上角`功能`中查看，除此之外在`vue-element-admin`的github仓库中收集了部分小众功能，如有需要可以在[`未集成功能`](/guide/other/feature.md)页面查看。
+`vue-element-admin`本身集成了很多常用功能，你可以从右上角`功能`中查看，除此之外在`vue-element-admin`的 github 仓库中收集了部分小众功能，如有需要可以在[`未集成功能`](/guide/other/feature.md)页面查看。
 
-项目开发流程：[快速入门](essentials/quick-start.html)
+项目开发流程：[快速入门](startGuide/quick-start.html)
 
 # vue-element-admin
 
@@ -36,7 +37,7 @@ pageClass: getting-started
 
 - 集成方案: [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
 - 基础模板: [vue-admin-template](https://github.com/PanJiaChen/vue-admin-template)
-:::
+  :::
 
 <br/>
 

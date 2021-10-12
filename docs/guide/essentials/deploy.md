@@ -18,6 +18,32 @@ npm run build:stage
 
 <br>
 
+## 控制台禁止log输出
+
+本项目打包在`production`环境下禁止开发者控制台输出log信息。
+
+```js
+// vue.config.js
+configureWebpack: config => {
+    // 生产环境混淆代码并禁止开发控制台log输出
+    if (process.env.NODE_ENV === 'production') {
+      const uglifyPlugin = new UglifyJsPlugin({
+        uglifyOptions: {
+          //生产环境自动删除console
+          compress: {
+            drop_debugger: true,
+            drop_console: true,
+            pure_funcs: ['console.log']
+          }
+        },
+        sourceMap: false,
+        parallel: true
+      })
+      config.plugins.push(uglifyPlugin);
+    }
+  }
+```
+
 ## 环境变量
 
 所有测试环境或者正式环境变量的配置都在 [.env.development](https://github.com/PanJiaChen/vue-element-admin/blob/master/.env.development)等 `.env.xxxx`文件中。
@@ -45,7 +71,7 @@ console.log(process.env.VUE_APP_xxxx)
 npm run preview -- --report
 ```
 
-运行之后你就可以在 [http://localhost:9526/report.html](http://localhost:9526/report.html) 页面看到具体的体积分布
+运行之后你就可以在 [http://localhost:9526/report.html](http://localhost:9526/report.html) 页面看到具体的体积分布。
 
 ![](../../.vuepress/public/images/docImg/3fddf034-2b38-4299-b0d2-b748fb2abef0.jpg)
 

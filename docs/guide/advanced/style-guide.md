@@ -51,6 +51,16 @@ export default {
 - `@/views/svg-icons/require-icons.js`
 - `@/components/MarkdownEditor/default-options.js`
 
+在编写全局js方法时，请务必提供注释信息，使用vscode [koroFileHeader扩展](/guide/other/extension.html#korofileheader)可实现快速设置。
+
+对函数使用korofileheader 扩展后会生成这样的注释模板：
+
+![](../../.vuepress/public/images/docImg/Snipaste_2021-09-24_10-12-26.png)
+
+请根据函数实际修改注释模板内容，若函数名称可以清楚说明函数作用可省略description。
+
+![](../../.vuepress/public/images/docImg/Snipaste_2021-09-24_10-14-25.png)
+
 ## Views
 
 在`views`文件下，代表路由的`.vue`文件都使用横线连接 (kebab-case)，代表路由的文件夹也是使用同样的规则。

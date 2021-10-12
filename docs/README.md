@@ -24,7 +24,7 @@ footer:
 
 ```bash
 # clone the project
-git clone https://github.com/PanJiaChen/vue-element-admin.git
+git clone http://106.52.211.44:5674/JiapengShu/fii-frontend-template
 
 # install dependency
 npm install
